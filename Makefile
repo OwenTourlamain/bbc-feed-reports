@@ -1,4 +1,5 @@
+RANDP=research_and_planning
+
 randp:
-	# Run twice to make sure ToC is correct
-	xelatex src/research_and_planning.tex
-	xelatex src/research_and_planning.tex
+	# Script ensures xelatex is re-run as many times as needed
+	./smartbuild $(RANDP)
