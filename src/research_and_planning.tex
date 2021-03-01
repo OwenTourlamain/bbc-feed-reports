@@ -3,6 +3,7 @@
 \usepackage{fontspec}
 \usepackage{pgfgantt}
 \usepackage{multicol}
+\usepackage{cite}
 \usepackage
 [
         a4paper,% other options: a3paper, a5paper, etc
@@ -47,14 +48,14 @@
 
     \begin{multicols}{2}
 
-		\includegraphics[width=0.4\textwidth]{img/bcu.jpg}
+		\includegraphics[width=0.4\textwidth]{../img/bcu.jpg}
 
 		Computing, Engineering and the Built Environment\\
 		Birmingham City University\\
 		United Kingdom\\
     \columnbreak
 
-    \includegraphics[width=0.4\textwidth]{img/bbcnl.jpg}
+    \includegraphics[width=0.4\textwidth]{../img/bbcnl.jpg}
 
 		BBC News Labs\\
 		BBC\\
@@ -72,15 +73,34 @@
 
 \section{Research Question}
 
-
+How could social media delivery techniques be used in a digital news consumption platform to increase user engagement?
 
 \section{Aims and Objectives}
 
   \subsection{Project Overview}
 
-  Modern news consumption started with the newspaper; despite moving online these
-roots can still be seen in the user interfaces of digital news platforms such as
-the BBC News website and mobile app.
+  This project aims to improve upon the flexibility and user engagement of traditional online news platforms, specifically those used by BBC News. The digital news landscape is changing rapidly, a 2019 report from Ofcom found that people in the UK are increasingly using 
+
+  Modern news consumption started with the newspaper. Despite moving to online
+  platforms these roots can still be seen in the user interfaces of digital news
+  platforms such as the BBC News website and mobile app. These interfaces
+  broadly function by providing categories of content to browse, this makes
+  these interfaces good for researching topics and for getting an overview of
+  recent news within a topic \cite{dummy}. Social media instead often delivers
+  content to users through an infinitely scrolling feed. This style of interface
+  fits well with short bursts of interaction, such as while waiting for a kettle
+  to boil or waiting for a bus. In these scenarios users often want to consume
+  content without having to choose a category or risk running out of content.
+
+  This style of interface removes the need for the end user to decide what
+  content they consume at the point of consumption, instead they control what
+  content is presented to them by following, liking, subscribing to or otherwise
+  choosing to receive content from a number of sources. From this user input a
+  social media platform will choose exactly which content to provide to a user,
+  and in which order. The specifics of how these decisions are made are closely
+  guarded secrets, and as such will not be investigated here.
+
+  Moving to a social media style of interface would also allow
 
   \subsection{Deliverables and Goals}
 
@@ -106,6 +126,7 @@ the BBC News website and mobile app.
 
 \section{Project Timeline}
 
-
+\bibliography{research_and_planning}{}
+\bibliographystyle{plain}
 
 \end{document}
