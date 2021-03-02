@@ -1,3 +1,6 @@
+## Wordcount files
+*.wc
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
