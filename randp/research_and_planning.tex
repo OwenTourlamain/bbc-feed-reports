@@ -103,6 +103,16 @@ How could social media delivery techniques be used in a digital news consumption
 
   \subsection{Key Terminology}
 
+  \textbf{Infinite scrolling}: A user interface paradigm that presents content in a
+  scrollable window. Before the end of the content is reached more content is
+  loaded, resulting in the content appearing infinite to the user. This is often
+  seen in social media, for example Facebook's newsfeed, and Twitter's timeline.
+
+  \textbf{News Content}: For the purposes of this study news content will be
+  defined as text, audio, photos or videos that are created or distributed by a
+  news agency. These can come from a variety of sources ranging from broadcast
+  news programmes to stock photos used within an article.
+
   \subsection{Deliverables and Goals}
 
   The deliverables for this project will be the three components highlighted
@@ -123,8 +133,8 @@ How could social media delivery techniques be used in a digital news consumption
 
     This deliverable will take the form of an SQL database schema. The database
     that it describes will be hosted on an AWS RDS instance. As this may not be
-    available at all times the feed deliverable will have the ability to deploy
-    a local database the read from instead.
+    available at all times the feed will have the ability to deploy a local
+    database to read from for testing purposes.
 
     \subsubsection{The Scrapers}
 
@@ -168,13 +178,56 @@ How could social media delivery techniques be used in a digital news consumption
   and in which order. The specifics of how these decisions are made are closely
   guarded secrets, and as such will not be investigated here.
 
-  It is preferential to deliver news to users on a first party platform, such as
-  the app or website of the news producer. This gives the producers of the
-  content more control over how it is presented and consumed. T
+  While social media allows users to access news content in this way, it is
+  often preferential to deliver news to users on a first party platform, such as
+  the app or website of the news agency. This gives the producers of the content
+  more control over how it is presented and consumed, as well as what other
+  content may be presented to the user alongside the current content. This
+  project aims to create an interface inspired by social media, but completely
+  controlled by the news agency.
 
-  \subsection{Previous Work in the Field}
+  This also gives the creators of this content more flexibility to experiment
+  with new content types, they are not limited to the narrow selection of media
+  that the various social platforms offer. This feed can also offer features
+  such as A/B testing that would enable the content producers to test the
+  effectiveness of new media types.
+
+  When creating printed media, such as a newspaper, each article or photograph
+  that is included takes up space that could have been used for something else.
+  Because of this it is key to only select content that will have the greatest
+  impact, and testing new content is risky. In an infinite scrolling style of
+  interface however there is no limit on the amount of content that can be shown
+  to a user, as such inserting new media forms to test them becomes more viable
+  as if the user is not interested they can scroll past and move on to the next
+  piece of content.
 
   \subsection{Motivation for the Project}
+
+  This last issue is the primary inspiration for this project. As part of the
+  BBC News Labs team I worked on the SlicerAV and Live Segment Notifications
+  (LSN) projects. SlicerAV takes broadcast news programmes and
+  automatically breaks them up into "slices" of short form media. Once this
+  project was functional the next question was how to deliver this content to
+  end users. For testing purposes we decided to tweet the slices as we felt that
+  they fit best on to a social media platform, and twitter worked best for our
+  use-case.
+
+  The LSN project aimed to inspect news broadcasts just before they go live and
+  notify users about upcoming content that may be interesting to them. This
+  worked well, however we didn't have a good platform for hosting this content
+  internally. This raised to possibility of a feed that would hold all the
+  slices that a user had been notified about for them to browse. We then took
+  that idea and realised it might fit well if applied to a news homepage, where
+  sliced content could be surfaced alongside regular articles and videos.
+
+  Newslabs is focused on innovating news production and consumption, as such
+  they have several projects that could benefit from a flexible user interface
+  to surface their content. One such project is Graphical Story Telling (GST)
+  which aims to take articles and turn them into a series of graphics with
+  overlaid text that can be swiped through. This content is inspired by social
+  media and would fit perfectly into this project. This provided the idea to
+  make a flexible feed that can present a wide variety of content in one place,
+  with functionality for personalisation and testing.
 
 \section{Literature Review}
 
