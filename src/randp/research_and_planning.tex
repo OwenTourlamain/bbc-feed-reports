@@ -1,0 +1,199 @@
+\documentclass[12pt,titlepage]{article}
+\linespread{1.5}
+\usepackage{fontspec}
+\usepackage{pgfgantt}
+\usepackage{multicol}
+\usepackage{moreverb}
+\usepackage{cite}
+\usepackage
+[
+        a4paper,% other options: a3paper, a5paper, etc
+        left=4cm,
+        right=2.5cm,
+        top=2.5cm,
+        bottom=2.5cm
+]
+{geometry}
+\setmainfont{Arial}
+\pagenumbering{arabic}
+
+\immediate\write18{texcount -sum -1 \jobname.tex | xargs > \jobname.wc}
+\newcommand\wordcount{\input{\jobname.wc}}
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{center}
+		\vspace*{1cm}
+
+		\begingroup
+      \fontsize{24}{30}\selectfont
+      \textbf{BBC Feed}
+    \endgroup
+
+    \begingroup
+      \fontsize{18}{22}\selectfont
+      A Novel Interface for News Consumption Inspired by Social Media
+    \endgroup
+
+		\vspace{2cm}
+
+		\textbf{Owen Tourlamain}
+
+		\vfill
+
+		A thesis submitted in partial fulfilment of the requirements of Birmingham City University for the degree of Master of Science
+
+		\vspace{0.8cm}
+
+    \begin{multicols}{2}
+
+		\includegraphics[width=0.4\textwidth]{../img/bcu.jpg}
+
+		Computing, Engineering and the Built Environment\\
+		Birmingham City University\\
+		United Kingdom\\
+    \columnbreak
+
+    \includegraphics[width=0.4\textwidth]{../img/bbcnl.jpg}
+
+		BBC News Labs\\
+		BBC\\
+		United Kingdom\\
+
+    \end{multicols}
+
+    \today - \wordcount words
+
+	\end{center}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Research Question}
+
+How could social media delivery techniques be used in a digital news consumption platform to increase user engagement?
+
+\section{Aims and Objectives}
+
+  \subsection{Project Overview}
+
+  This project aims to improve upon the flexibility and user engagement of
+  traditional online news platforms, specifically those used by BBC News. The
+  digital news landscape is changing rapidly, a report from Ofcom found that
+  people in the UK are increasingly using digital platforms to consume news,
+  often through the use of social media. This project proposes that adapting
+  user interface techniques from social media and applying them to a news app
+  would help to keep users on the news platform. The system created will also
+  aim to be flexible so that it can adapt to future changes in the digital news
+  world.
+
+  The project will be content-agnostic so that it can work with any future media
+  that may be devised. To achieve this the project will be divided into three
+  parts: the feed, the catalogue and the scrapers. The feed will be an app that
+  users can interact with. It will need to intelligently select content from the
+  catalogue and present it to the user for consumption. The catalogue will store
+  content that can be displayed, this will aim to be fast to access, and well
+  organised to ensure a smooth flow of content to the users. The scrapers will
+  create the content for the catalogue by connecting to various BBC news data
+  sources. They will read this content, translate it into a form suitable for
+  the catalogue and store it. Each one will have to be custom made for the
+  various content sources.
+
+  \subsection{Key Terminology}
+
+  \subsection{Deliverables and Goals}
+
+  The deliverables for this project will be the three components highlighted
+  above, as well as all documentation require to understand, maintain, deploy
+  and use the system. The documentation will be provided as HTML pages alongside
+  documentation within the codebase. All code produced will be written in
+  Python.
+
+    \subsubsection{The Feed}
+
+    This deliverable will be a Python Flask application that can either be run
+    locally or deployed to a web server. It will have accompanying scripts that
+    install any pre-requisites for running the application. This deliverable
+    will depend on having a valid catalogue to read from. If the hosted
+    catalogue is unavailable there will be options to read from a local version.
+
+    \subsubsection{The Catalogue}
+
+    This deliverable will take the form of an SQL database schema. The database
+    that it describes will be hosted on an AWS RDS instance. As this may not be
+    available at all times the feed deliverable will have the ability to deploy
+    a local database the read from instead.
+
+    \subsubsection{The Scrapers}
+
+    This part of the project consists of several independent scripts, each will
+    be tailored to a specific BBC data source. The specifics for language,
+    running and hosting will vary between the scripts. They will each come with
+    appropriate documentation.
+
+  \subsection{Out of Scope Issues}
+
+  This project is primarily focused on the engineering challenges of developing
+  this system, as such it will not be attempting to measure user experiences in
+  any way. The project will also not explore algorithms for choosing which
+  content to display to users, it will however provide capacity for this
+  functionality to be added at a later date. These topics are highly important
+  to the problem space being explored, however they each could constitute a
+  project in their own right and would spread the focus of this project too
+  thin. These two issues would make for excellent follow up projects however so
+  some comments may be made where relevant to future research.
+
+\section{Background and Rationale}
+
+  \subsection{Overview of the Problem Space}
+
+  Modern news consumption started with the newspaper. Despite moving to online
+  platforms these roots can still be seen in the user interfaces of digital news
+  platforms such as the BBC News website and mobile app. These interfaces
+  broadly function by providing categories of content to browse, this makes
+  these interfaces good for researching topics and for getting an overview of
+  recent news within a topic \cite{dummy}. Social media instead often delivers
+  content to users through an infinitely scrolling feed. This style of interface
+  fits well with short bursts of interaction, such as while waiting for a kettle
+  to boil or waiting for a bus. In these scenarios users often want to consume
+  content without having to choose a category or risk running out of content.
+
+  This style of interface removes the need for the end user to decide what
+  content they consume at the point of consumption, instead they control what
+  content is presented to them by following, liking, subscribing to or otherwise
+  choosing to receive content from a number of sources. From this user input a
+  social media platform will choose exactly which content to provide to a user,
+  and in which order. The specifics of how these decisions are made are closely
+  guarded secrets, and as such will not be investigated here.
+
+  It is preferential to deliver news to users on a first party platform, such as
+  the app or website of the news producer. This gives the producers of the
+  content more control over how it is presented and consumed. T
+
+  \subsection{Previous Work in the Field}
+
+  \subsection{Motivation for the Project}
+
+\section{Literature Review}
+
+  \subsection{Interfaces for Online News Consumption}
+
+  \subsection{Infinite Scrolling User Interfaces}
+
+  \subsection{Social Media Design for Increasing User Engagement}
+
+\section{Methodology}
+
+  \subsection{Development Methodology}
+
+  \subsection{Project Management}
+
+\section{Project Timeline}
+
+
+\bibliography{research_and_planning}{}
+\bibliographystyle{plain}
+
+\end{document}
