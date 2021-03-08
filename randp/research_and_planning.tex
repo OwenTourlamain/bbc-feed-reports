@@ -22,6 +22,15 @@
 \setmainfont{Arial}
 \pagenumbering{arabic}
 
+\def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
+  \hbox{}\nobreak\hfil(#1)%
+  \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+
+\newsavebox\mybox
+\newenvironment{aquote}[1]
+  {\savebox\mybox{#1}\begin{quote}}
+  {\signed{\usebox\mybox}\end{quote}}
+
 \doublespacing
 \usepackage{etoolbox}
 \AtBeginEnvironment{quote}{\singlespacing\small}
@@ -119,7 +128,7 @@ How could social media delivery techniques be used in a digital news consumption
   traditional online news platforms, specifically those used by BBC News. The
   digital news landscape is changing rapidly; a report from Ofcom found that
   people in the UK are increasingly using digital platforms to consume news,
-  often through the use of social media \cite{ofcom}. This project proposes that
+  often through the use of social media \citep{ofcom}. This project proposes that
   adapting user interface techniques from social media and applying them to a
   news app would help to keep users on the news platform. The system created
   will also aim to be flexible so that it can adapt to future changes in the
@@ -139,7 +148,7 @@ How could social media delivery techniques be used in a digital news consumption
 
   Social media often faces criticism for being addictive and of wasting users
   time \cite{neyman}. This raises ethical considerations with this project as it
-  has the potential to also create these same issues. This should be mediated by
+  has the potential to also create these same issues. This will be mediated by
   the lack of user created content, meaning that the users time will be spent
   browsing informative news rather than wasting it. The addictive nature of
   social media is actually a benefit to this project as it is trying to
@@ -204,13 +213,13 @@ How could social media delivery techniques be used in a digital news consumption
 
   Modern news consumption started with the newspaper. Despite moving to online
   platforms these roots can still be seen in the user interfaces of digital news
-  platforms such as the BBC News website and mobile app \cite{ofcom}. These
+  platforms such as the BBC News website and mobile app \citep{ofcom}. These
   interfaces broadly function by providing categories of content to browse, this
   makes these interfaces good for researching topics and for getting an overview
-  of recent news within a topic \cite{yalanska_2021}. Social media instead often
+  of recent news within a topic \citep{yalanska_2021}. Social media instead often
   delivers content to users through an infinitely scrolling feed. This style of
   interface fits well with short bursts of interaction, such as while waiting
-  for a kettle to boil or waiting for a bus \cite{yalanska_2020}. In these
+  for a kettle to boil or waiting for a bus \citep{yalanska_2020}. In these
   scenarios users often want to consume content without having to choose a
   category or risk running out of content.
 
@@ -234,7 +243,7 @@ How could social media delivery techniques be used in a digital news consumption
   with new content types, they are not limited to the narrow selection of media
   that the various social platforms offer. This feed can also offer features
   such as A/B testing that would enable the content producers to test the
-  effectiveness of new media types \cite{ab}.
+  effectiveness of new media types \citep{ab}.
 
   When creating printed media, such as a newspaper, each article or photograph
   that is included takes up space that could have been used for something else.
@@ -250,7 +259,7 @@ How could social media delivery techniques be used in a digital news consumption
   This last issue is the primary inspiration for this project. As part of the
   BBC News Labs team I worked on the SlicerAV and Live Segment Notifications
   (LSN) projects. SlicerAV takes broadcast news programmes and automatically
-  breaks them up into "slices" of short form media \cite{slicer}. Once this
+  breaks them up into "slices" of short form media \citep{slicer}. Once this
   project was functional the next question was how to deliver this content to
   end users. For testing purposes we decided to tweet the slices as we felt that
   they fit best on to a social media platform, and twitter worked best for our
@@ -258,7 +267,7 @@ How could social media delivery techniques be used in a digital news consumption
 
   The LSN project aimed to inspect news broadcasts just before they go live and
   notify users about upcoming content that may be interesting to them
-  \cite{lsn}. This worked well, however we didn't have a good platform for
+  \citep{lsn}. This worked well, however we didn't have a good platform for
   hosting this content internally. This raised to possibility of a feed that
   would hold all the slices that a user had been notified about for them to
   browse. We then took that idea and realised it might fit well if applied to a
@@ -269,7 +278,7 @@ How could social media delivery techniques be used in a digital news consumption
   they have several projects that could benefit from a flexible user interface
   to surface their content. One such project is Graphical Story Telling (GST)
   which aims to take articles and turn them into a series of graphics with
-  overlaid text that can be swiped through \cite{gst}. This content is inspired
+  overlaid text that can be swiped through \citep{gst}. This content is inspired
   by social media and would fit perfectly into this project. This provided the
   idea to make a flexible feed that can present a wide variety of content in one
   place, with functionality for personalisation and testing.
@@ -281,12 +290,12 @@ How could social media delivery techniques be used in a digital news consumption
   Since the popularity of online news has taken off, there has been a lot of
   innovation and experimentation into the interfaces we use to consume this
   media. Most news agencies have tried to move away from simply displaying walls
-  of text to users, in \cite{msnbc} we see a case study into how one large news
+  of text to users, in th work of \cite{msnbc} we see a case study into how one large news
   agency re-designed their user interface, and the software stack that runs it.
   This study highlights how important flexibility was in the system, they split
   the system between the front end and the back end with the goal that "User
   interfaces and databases would become isolated components to be updated and
-  swapped out" \cite{msnbc}. This closely mirrors the model proposed in this
+  swapped out" \citep{msnbc}. This closely mirrors the model proposed in this
   project. The case study also made note of the new system allowing content to
   reach audiences that hadn't been considered targets when the content was
   produced:
@@ -301,7 +310,7 @@ How could social media delivery techniques be used in a digital news consumption
   as that will allow segments of broadcast programmes to reach audiences that
   the whole programme may not.
 
-  Some projects have taken this redesign in a different direction, in
+  Some projects have taken this redesign in a different direction, in the work of
   \cite{newsstand} we see an attempt to display news content based on it's
   geographical location. Localised news has always been popular, with the BBC
   running separate news programmes for different UK regions. This approach would
@@ -317,15 +326,15 @@ How could social media delivery techniques be used in a digital news consumption
   News user interface would be a monumental task, requiring data that cannot be
   easily accessed. As such the measurement is out of scope for this project,
   however the means to perform those tests should be built into the system. In
-  order to identify which metrics are important to track we can look at
-  \cite{ux} and \cite{engagement}. \cite{ux} highlights that simple metrics,
-  such as time spent browsing or number of articles viewed, are not sufficient
-  on their own as both high and low figures for these can indicate good and bad
-  user experiences. \cite{ux} found that the best way to measure user engagement
-  was through interviews, this would be impractical to use all the time. Instead
-  this project will aim to include some form of user feedback into the system,
-  this will likely be modelled on a favourites system or a positive/negative
-  indicator.
+  order to identify which metrics are important to track we can look at the
+  published work of \cite{ux} and \cite{engagement}. \cite{ux} highlight that
+  simple metrics, such as time spent browsing or number of articles viewed, are
+  not sufficient on their own as both high and low figures for these can
+  indicate good and bad user experiences. The authors also found that the best
+  way to measure user engagement was through interviews, this would be
+  impractical to use all the time. Instead this project will aim to include some
+  form of user feedback into the system, this will likely be modelled on a
+  favourites system or a positive/negative indicator.
 
   \subsection{Infinite Scrolling User Interfaces}
 
@@ -351,12 +360,12 @@ How could social media delivery techniques be used in a digital news consumption
   features are actually helpful as there is a desire to increase engagement on
   the BBC News platforms, and the users time will not be wasted as they will be
   browsing informative and well written news articles. Both studies do however
-  note that too much choice can be a bad thing, \cite{karlsson} states:
+  note that too much choice can be a bad thing, \cite{karlsson} state:
 
-  \begin{quote}
+  \begin{aquote}{\cite{karlsson}}
     while people may be attracted by a large variety of options, they are more
     likely to act when given fewer choices.
-  \end{quote}
+  \end{aquote}
 
   This is something to keep in mind when designing this system, we should aim to
   not overload the user with too many options at once. Techniques such as
@@ -410,7 +419,7 @@ How could social media delivery techniques be used in a digital news consumption
   \subsection{Development Methodology}
 
   The development of this project will follow a Kanban-style methodology
-  \cite{kanban}. Since there is only one developer on this project this will not
+  \citep{kanban}. Since there is only one developer on this project this will not
   be used for collaborative purposes, instead it will be used to manage and
   monitor tasks. As tasks arise they will be added to a To-Do list. These will
   me moved to an In Progress list when they are started and then a Done list
