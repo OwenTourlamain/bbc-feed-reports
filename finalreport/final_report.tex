@@ -120,11 +120,15 @@
 
 \section{Research Question}
 
+%To-Do: Rephrase research question
+
 How could social media delivery techniques be used in a digital news consumption platform to increase user engagement?
 
 \section{Aims and Objectives}
 
   \subsection{Project Overview}
+
+  %To-Do: Re-write R and P report
 
   This project aims to improve upon the flexibility and user engagement of
   traditional online news platforms, specifically those used by BBC News. The
@@ -451,15 +455,93 @@ How could social media delivery techniques be used in a digital news consumption
 
 \section{System Development}
 
+%To-Do: Write system development
+
+  \subsection{Development Methodology}
+
+  Throughout this project an iterative development style was used. This took the
+  form of a design-implement-test loop that was repeated for each step of the
+  project. This was used to provide compartmentalisation to the system, each
+  element performs a simple function that could be tested easily. WHen each of
+  these elements are connected they create a more complex system.
+
+  A good example of this is the API side of the catalogue module. These use SQL
+  commands to retrieve information from the database and convert this
+  information into Python objects. As party of this it is necessary to link some
+  objects together, every \textit{post} belongs to a \textit{story} for example.
+  Rather than writing specialised code to create this link each time, the
+  already written \textit{get\_story()} method was used.
+
+  This compatmentalisation also streamlined development significantly as each
+  element could be re-written independantly of the rest of the system. This
+  flexibility was utilised heavily when the catalogue module had to be
+  re-written to support large changes to the database structure. It was simple
+  to change the code within the module without affecting the rest of the system.
+
+  Using test driven development was considered for this project; it would have
+  provided structure and repeatability to the testing procedure. However this
+  would also have added significant overhead to the development of the project.
+  As the project was heavily time restricted, and the output was focused around
+  the user interface rather than the technical implementation, it was decided to
+  use the light-weight methodology.
+
+  \subsection{Language and Technology Choices}
+
+  Language and technology decisions for this project were guided by the need for
+  rapid development and the prototype nature of the system. As long term
+  maintainability and reliability were not priorities for this project, the
+  focus was instead on choosing technologies and languages that woulld
+  facilitate rapid development and innovation. As such, the chosen platforms are
+  all ones that the author has a lot of experience with.
+
+  The core of the project was implemented in Python 3.7, this was chosen as it
+  is a recent version of Python that runs well on the hardware used for
+  developing the system. To create the API and backend portions of the system
+  Flask was used as this fit well with the rapid protoyping nature of the
+  project. Flask also provides the Jinja templating engine which made producing
+  web pages fast and efficient. These pages were built using pure HTML, CSS and
+  Javascript as this avoided having to learn new user interface frameworks.
+
+  \subsection{Issues Faced}
+
+  The main issues faced during the project were around the need to balance the
+  benifit of adding a feature with the time it would take to implement. The best
+  example of this is when it was realised that a ground up re-write of the
+  catalogue module would be highly benifitial to the project, however it would
+  also take several days of development time. It was decided instead to find a
+  work around that would take much less time to develop. This method of task
+  prioritisation was vital to ensure the project was completed within the
+  timeframe required.
+
+  The time constraints of the project also required that some desired features
+  be cut from the system. It was decided early on in the project timeline to
+  remove the data gathering portions of the system. This allowed the project to
+  become more focused around the user interface implementation, as creating
+  placeholder data was significantly faster.
+
 \section{Final System Overview}
+
+  \subsection{Catalogue}
+
+  \subsection{Feed}
+
+%To-Do: Write system overview
 
 \section{Informal Evaluation}
 
+%To-Do: Write informal evaluation
+
 \section{Discussion}
+
+%To-Do: Write discussion
 
 \section{Conclusion}
 
+%To-Do: Write conclusion
+
 \section{Recomendations}
+
+%To-Do: Write Recomendations
 
 \bibliography{final_report}
 
