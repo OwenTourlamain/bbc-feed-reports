@@ -163,9 +163,9 @@ How could social media delivery techniques be used in a digital news consumption
   \subsection{Key Terminology}
 
   \textbf{Infinite scrolling}: A user interface paradigm that presents content in a
-  scrollable window. Before the end of the content is reached more content is
+  scroll-able window. Before the end of the content is reached more content is
   loaded, resulting in the content appearing infinite to the user. This is often
-  seen in social media, for example Facebook's newsfeed, and Twitter's timeline.
+  seen in social media, for example Facebook's news feed, and Twitter's timeline.
 
   \textbf{News Content}: For the purposes of this study news content will be
   defined as text, audio, photos or videos that are created or distributed by a
@@ -177,14 +177,14 @@ How could social media delivery techniques be used in a digital news consumption
   The deliverables for this project will be the three components highlighted
   above, as well as all documentation required to understand, maintain, deploy
   and use the system. The documentation will be provided as HTML pages alongside
-  documentation within the codebase. The majority code produced will be written
+  documentation within the code base. The majority code produced will be written
   in Python.
 
     \subsubsection{The Feed}
 
     This deliverable will be a Python Flask application that can either be run
     locally or deployed to a web server. It will have accompanying scripts that
-    install any pre-requisites for running the application. This deliverable
+    install any prerequisites-requisites for running the application. This deliverable
     will depend on having a valid catalogue to read from. If the hosted
     catalogue is unavailable there will be options to read from a local version.
 
@@ -398,7 +398,7 @@ How could social media delivery techniques be used in a digital news consumption
   naturally caused many news outlets to start publishing content on social
   media, this however has not come without any downsides. \cite{boukes} showed
   that "Twitter usage positively influenced knowledge acquisition [and] Facebook
-  had a negative effect", they suggest that this is corelated to the target
+  had a negative effect", they suggest that this is co-related to the target
   users of the platforms, stating that twitter users are often motivated to use
   the platform to gain knowledge and information. This means that using these
   techniques on a news app or website should work well, as the audience will have
@@ -429,7 +429,7 @@ How could social media delivery techniques be used in a digital news consumption
   be used for collaborative purposes, instead it will be used to manage and
   monitor tasks. As tasks arise they will be added to a To-Do list. These will
   me moved to an In Progress list when they are started and then a Done list
-  when finished. Tasks will be added, edited and split into subtasks as needed
+  when finished. Tasks will be added, edited and split into sub-tasks as needed
   throughout the project. This methodology will allow a high degree of
   flexibility which fits the project well as the specifics of the project will
   likely evolve as the project progresses.
@@ -462,7 +462,7 @@ How could social media delivery techniques be used in a digital news consumption
   Throughout this project an iterative development style was used. This took the
   form of a design-implement-test loop that was repeated for each step of the
   project. This was used to provide compartmentalisation to the system, each
-  element performs a simple function that could be tested easily. WHen each of
+  element performs a simple function that could be tested easily. When each of
   these elements are connected they create a more complex system.
 
   A good example of this is the API side of the catalogue module. These use SQL
@@ -472,8 +472,8 @@ How could social media delivery techniques be used in a digital news consumption
   Rather than writing specialised code to create this link each time, the
   already written \textit{get\_story()} method was used.
 
-  This compatmentalisation also streamlined development significantly as each
-  element could be re-written independantly of the rest of the system. This
+  This compartmentalisation also streamlined development significantly as each
+  element could be re-written independently of the rest of the system. This
   flexibility was utilised heavily when the catalogue module had to be
   re-written to support large changes to the database structure. It was simple
   to change the code within the module without affecting the rest of the system.
@@ -490,28 +490,28 @@ How could social media delivery techniques be used in a digital news consumption
   Language and technology decisions for this project were guided by the need for
   rapid development and the prototype nature of the system. As long term
   maintainability and reliability were not priorities for this project, the
-  focus was instead on choosing technologies and languages that woulld
+  focus was instead on choosing technologies and languages that would
   facilitate rapid development and innovation. As such, the chosen platforms are
   all ones that the author has a lot of experience with.
 
   The core of the project was implemented in Python 3.7, this was chosen as it
   is a recent version of Python that runs well on the hardware used for
-  developing the system. To create the API and backend portions of the system
-  Flask was used as this fit well with the rapid protoyping nature of the
-  project. Flask also provides the Jinja templating engine which made producing
+  developing the system. To create the API and back-end portions of the system
+  Flask was used as this fit well with the rapid prototyping nature of the
+  project. Flask also provides the Jinja template rendering engine which made producing
   web pages fast and efficient. These pages were built using pure HTML, CSS and
-  Javascript as this avoided having to learn new user interface frameworks.
+  JavaScript as this avoided having to learn new user interface frameworks.
 
   \subsection{Issues Faced}
 
   The main issues faced during the project were around the need to balance the
-  benifit of adding a feature with the time it would take to implement. The best
+  benefit of adding a feature with the time it would take to implement. The best
   example of this is when it was realised that a ground up re-write of the
-  catalogue module would be highly benifitial to the project, however it would
+  catalogue module would be highly beneficial to the project, however it would
   also take several days of development time. It was decided instead to find a
   work around that would take much less time to develop. This method of task
   prioritisation was vital to ensure the project was completed within the
-  timeframe required.
+  time frame required.
 
   The time constraints of the project also required that some desired features
   be cut from the system. It was decided early on in the project timeline to
@@ -539,7 +539,7 @@ How could social media delivery techniques be used in a digital news consumption
 
 %To-Do: Write conclusion
 
-\section{Recomendations}
+\section{Recommendations}
 
 %To-Do: Write Recomendations
 
