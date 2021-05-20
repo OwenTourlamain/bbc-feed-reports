@@ -523,19 +523,19 @@ How could social media delivery techniques be used in a digital news consumption
 \section{Final System Overview}
 
   The final system consists of two main components that provide the
-  functionality and user interface of the system repectivley which are detailed
+  functionality and user interface of the system respectively which are detailed
   bellow. In addition to these components there is a database schema and
-  prototype dataset which have been produced.
+  prototype data set which have been produced.
 
   \subsection{Catalogue}
 
-  The catalogue portion of the system has been built as an independant Python
+  The catalogue portion of the system has been built as an independent Python
   module, the aim of this was to encourage de-coupling the data model
   implementation from the rest of the system. This allows the data source to be
-  swapped out very easily and would allow the use of scallable cloud-based
+  swapped out very easily and would allow the use of saleable cloud-based
   databases such as AWS RDS.
 
-  The main functionaily of the module is provided by \textit{catalogue.py}, in
+  The main functionality of the module is provided by \textit{catalogue.py}, in
   this file is a single class that handles all the interaction with the SQL
   database. When this class is initialised it attempts to access a database
   file, creating it if the file doesn't exist. If the database is empty it
@@ -543,7 +543,7 @@ How could social media delivery techniques be used in a digital news consumption
   to reduce the development time needed to maintain the database as it could be
   quickly wiped and rebuilt with minimal effort.
 
-  All database tables have an \textit{add} methond, as well as \textit{get}
+  All database tables have an \textit{add} method, as well as \textit{get}
   methods for both single items or all items in the table. In a full production
   system it would be necessary for this module to provide \textit{create},
   \textit{read}, \textit{update} and \textit{delete} methods for all data. It
@@ -554,28 +554,27 @@ How could social media delivery techniques be used in a digital news consumption
   these methods has provided an API for automated data entry.
 
   Some of the \textit{get} methods have to link multiple items together, for
-  example every \textit{post} belongs to a \textit{story}. This was achived by
+  example every \textit{post} belongs to a \textit{story}. This was achieved by
   having the relevant methods call other methods from the same class, for
   example \textit{get\_post} calls \textit{get\_story} using the \textit{story\_id}
   from the post. This method in turn calls \textit{get\_topic} which calls
   \textit{get\_brand} to complete the post item. With a longer development
-  timeframe a better solution to this problem could have been found by utilising
+  time frame a better solution to this problem could have been found by utilising
   a pre-written Python object relational mapper such as SQLAlchemy. This would
   have made the data management side of the project much simpler, however it
   would have also imposed limits on which data technologies could be used which
-  would have reduced the independance between the database and data management
+  would have reduced the independence between the database and data management
   system.
 
   The rest of the methods in the class provide specific data access as needed by
-  other elements fo the system. Methods such as \textit{get\_user\_by\_name} are
-  required to filfill a specific purpose and were added as and when the need
+  other elements of the system. Methods such as \textit{get\_user\_by\_name} are
+  required to fulfil a specific purpose and were added as and when the need
   arose during the project development. For example \textit{get\_user\_by\_name}
   was added to improve efficiency when checking if a user exists in the
   database. Only one update method was required during the project, this was to
   allow users to change their topic preferences through the web user interface.
 
   \subsection{Feed}
-
 
 
   \subsection{Database}
