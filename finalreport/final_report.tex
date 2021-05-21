@@ -460,17 +460,17 @@ How could social media delivery techniques be used in a digital news consumption
   \subsection{Development Methodology}
 
   Throughout this project an iterative development style was used. This took the
-  form of a design-implement-test loop that was repeated for each step of the
-  project. This was used to provide compartmentalisation to the system, each
+  form of a 'design-implement-test' loop that was repeated for each step of the
+  project. This was used to provide compartmentalisation to the system; each
   element performs a simple function that could be tested easily. When each of
   these elements are connected they create a more complex system.
 
-  A good example of this is the API side of the catalogue module. These use SQL
+  A good example of this is the API side of the catalogue module. This uses SQL
   commands to retrieve information from the database and convert this
-  information into Python objects. As party of this it is necessary to link some
+  information into Python objects. As part of this it is necessary to link some
   objects together, every \textit{post} belongs to a \textit{story} for example.
   Rather than writing specialised code to create this link each time, the
-  already written \textit{get\_story()} method was used.
+  existing \textit{get\_story()} method was used.
 
   This compartmentalisation also streamlined development significantly as each
   element could be re-written independently of the rest of the system. This
@@ -483,7 +483,7 @@ How could social media delivery techniques be used in a digital news consumption
   would also have added significant overhead to the development of the project.
   As the project was heavily time restricted, and the output was focused around
   the user interface rather than the technical implementation, it was decided to
-  use the light-weight methodology.
+  use a methodology with less process overhead.
 
   \subsection{Language and Technology Choices}
 
@@ -502,6 +502,8 @@ How could social media delivery techniques be used in a digital news consumption
   producing web pages fast and efficient. These pages were built using pure
   HTML, CSS and JavaScript as this avoided having to learn new user interface
   frameworks.
+
+  %To-Do: Add development progress section
 
   \subsection{Issues Faced}
 
