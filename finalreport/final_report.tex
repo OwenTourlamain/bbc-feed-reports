@@ -574,8 +574,42 @@ How could social media delivery techniques be used in a digital news consumption
   database. Only one update method was required during the project, this was to
   allow users to change their topic preferences through the web user interface.
 
+  %To-Do: Talk about secrutiy
+
   \subsection{Feed}
 
+  The feed portion of the system provides a web based user interface as well as
+  a RESTful API, using Flask to process these requests. Both of these are
+  contained in \textit{app.py}, using different endpoints to differentiate the
+  two interfaces. The endpoint structure has been designed so that all the API
+  endpoints end in \textit{/json/}; this means that for most user interface
+  pages \textit{/json/} can be appended to the URL to retrieve the data in JSON
+  format.
+
+  The API side of the Flask app provides an endpoint for each of the basic add
+  and get methods that the catalogue supports. These endpoints can be used to
+  add data to the system from external sources. As these external services would
+  not need to modify or remove data so these endpoints were not added.
+
+  The rest of the endpoints provide the various user interface pages. Each is
+  written as a Jinja template using plain HTML, CSS and JavaScript. The
+  templates were designed to be modular wherever possible, this allows common UI
+  elements such as the navigation pane to be reused between pages. The UI design
+  follows BBC guidelines wherever possible, Including making use of the BBC font
+  Reith Sans, and using a header and footer designed by BBC News Labs. These
+  elements were included to help the UI feel more authentic, which makes the
+  final system easier to compare to current news platforms such as the BBC News
+  website. This was reinforced by the use of the official BBC UI and branding
+  colours.
+
+  The novel elements of the UI were inspired by social media feeds such as
+  Facebook's news feed and Twitter's timeline. This lead to the vertically
+  scrolling list of posts, which allows users to easily consume news articles or
+  scroll past them if they are not interested. One interesting UI development
+  was the expanding posts, this allows for users to consume more content they
+  are interested in without interrupting their scrolling. This keeps the UI
+  focused on a single page experience, rather than directing users to multiple
+  pages which could lead to navigational issues.
 
   \subsection{Database}
 
