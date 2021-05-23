@@ -122,7 +122,8 @@
 
 \section{Research Question}
 
-How could social media user interface elements be adapted for and applied to a digital news consumption platform?
+How could social media user and application interface elements be adapted for
+and applied to a digital news consumption platform?
 
 \section{Aims and Objectives}
 
@@ -615,7 +616,33 @@ How could social media user interface elements be adapted for and applied to a d
 
   \subsection{Database}
 
+  The database has been designed to show how the use of intelligently structured
+  data can effect the delivery of online news. The core data structure in the
+  system is the relation between \textit{posts}, \textit{stories} and
+  \textit{topics}. Using this structure posts can be collected under their
+  stories, which in turn can be grouped and filtered by topic. This allows for
+  user interfaces to display content in a form which reflects the dynamic way
+  that news stories develop and grow. This structure allows data to be inserted
+  into the system from many sources all contributing to the same set of stories.
 
+  To achieve this structure the database had to be built to be designed
+  following industrial best practices. As such it was normalised to the third
+  normal form, this ensures that the data is stored logically and to eliminate
+  redundant data. The best way to achieve this was to make sure that each record
+  in the database was atomic, meaning that it only contains one item. For
+  example each \textit{user} can have multiple \textit{topics} that they are
+  following. To represent this 'one-to-many' relationship in the database an
+  extra table was created that holds pairs of \textit{(user\_id, topic\_id)}
+  that can easily be queried to extract the followed topics for a given user.
+
+  To make the database easier to maintain, the schema has been defined in a
+  separate file that can be loaded on start up. This allows the structure of the
+  database to be changed with minimal effort, and even swapped out for a
+  completely different one if desired. In a similar manner the test data is
+  stored in plain text as a sequence of SQL \textit{INSERT} commands, Keeping
+  these two files in plain text allows them to be version controlled along with
+  the rest of the system, this helps streamline development and track changes
+  throughout the process.
 
 %To-Do: Write system overview
 
