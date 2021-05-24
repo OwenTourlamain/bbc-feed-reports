@@ -131,84 +131,94 @@ and applied to a digital news consumption platform?
 
   %To-Do: Re-write R and P report
 
-  This project aims to improve upon the flexibility and user engagement of
-  traditional online news platforms, specifically those used by BBC News. The
-  digital news landscape is changing rapidly; a report from Ofcom found that
-  people in the UK are increasingly using digital platforms to consume news,
-  often through the use of social media \citep{ofcom}. This project proposes that
-  adapting user interface techniques from social media and applying them to a
-  news app would help to keep users on the news platform. The system created
-  will also aim to be flexible so that it can adapt to future changes in the
-  digital news world.
+  This project aims to improve upon the application and user interface of
+  traditional online news platforms, focusing specifically those used by BBC
+  News. The digital news landscape is changing rapidly; a report from Ofcom
+  found that people in the UK are increasingly using digital platforms to
+  consume news, often through the use of social media \citep{ofcom}. This
+  project proposes that adapting user interface and data structure techniques
+  from social media and applying them to a news delivery system could increase
+  both user engagement and digital journalism efficiency. As the world of online
+  news is constantly growing and evolving, the system created will also aim to
+  be flexible so that it can adapt to future changes in this space.
 
-  The project will be content-agnostic so that it can work with any future media
-  that may be devised. To achieve this, the project will be divided into three
-  parts: the feed, the catalogue and the scrapers. The feed will be an app that
-  users can interact with. It will need to intelligently select content from the
-  catalogue and present it to the user for consumption. The catalogue will store
-  content that can be displayed, this will aim to be fast to access, and well
-  organised to ensure a smooth flow of content to the users. The scrapers will
-  create the content for the catalogue by connecting to various BBC news data
-  sources. They will read this content, translate it into a form suitable for
-  the catalogue and store it. Each one will have to be custom made for the
-  various content sources.
+  The project will be content-agnostic allowing video, audio and written content
+  to co-exist on a single platform. The system will not be limited to those
+  three types of media however, it will be designed so that it can work with any
+  future media that may be devised. To achieve this, the project will be divided
+  into three parts: the feed, the catalogue and the scrapers. The feed will be
+  an app that users can interact with. It will need to intelligently select
+  content from the catalogue and present it to the user for consumption. The
+  catalogue will store content that can be displayed, this will aim to be fast
+  to access, and well organised to ensure a smooth flow of content to the users.
+  The scrapers will create the content for the catalogue by connecting to
+  various BBC news data sources. They will read this content, translate it into
+  a form suitable for the catalogue and store it. Creating these scrapers will
+  involve writing specific interfaces to many different sources of news content;
+  as this will take a lot of time they will not be produced as part of this
+  project however they will be considered when developing the API for the
+  catalogue portion.
 
   Social media often faces criticism for being addictive and of wasting users
-  time \citep{neyman}. This raises ethical considerations with this project as it
-  has the potential to also create these same issues. This will be mediated by
-  the lack of user created content, meaning that the users time will be spent
+  time \citep{neyman}. This raises ethical considerations with this project as
+  it has the potential to also create these same issues. This will be mediated
+  by the lack of user created content, meaning that the users time will be spent
   browsing informative news rather than wasting it. The addictive nature of
-  social media is actually a benefit to this project as it is trying to
-  increase user engagement on news platforms.
+  social media is actually a benefit to this project as it is trying to increase
+  user engagement on news platforms. As this project is focusing on the
+  interface implementation the user experience is out of scope here, and will
+  not be measured in any way. This is an area that a future study may wish to
+  explore however as the ethical considerations around increasing user engagement
+  time are both interesting and important to understand.
 
   \subsection{Key Terminology}
 
   \textbf{Infinite scrolling}: A user interface paradigm that presents content in a
-  scroll-able window. Before the end of the content is reached more content is
+  scrolling window. Before the end of the content is reached more content is
   loaded, resulting in the content appearing infinite to the user. This is often
   seen in social media, for example Facebook's news feed, and Twitter's timeline.
 
   \textbf{News Content}: For the purposes of this study news content will be
-  defined as text, audio, photos or videos that are created or distributed by a
+  defined as text, audio, images or videos that are created or distributed by a
   news agency. These can come from a variety of sources ranging from broadcast
   news programmes to stock photos used within an article.
 
   \subsection{Deliverables and Goals}
 
-  The deliverables for this project will be the three components highlighted
-  above, as well as all documentation required to understand, maintain, deploy
-  and use the system. The documentation will be provided as HTML pages alongside
-  documentation within the code base. The majority code produced will be written
-  in Python.
+  The deliverables for this project will be two of the three components
+  highlighted above, as well as all documentation required to understand,
+  maintain, deploy and use the system. The documentation will be provided as
+  readme files alongside documentation within the code base itself. The majority
+  code produced will be written in Python, with HTML, CSS and JavaScript used
+  for the web interface. Also included will be a set of test data that can be
+  used to demonstrate the system in a working state.
 
     \subsubsection{The Feed}
 
     This deliverable will be a Python Flask application that can either be run
     locally or deployed to a web server. It will have accompanying scripts that
     install any prerequisites for running the application. This deliverable
-    will depend on having a valid catalogue to read from. If the hosted
-    catalogue is unavailable there will be options to read from a local version.
+    will depend on having a valid catalogue to read from.
 
     \subsubsection{The Catalogue}
 
-    This deliverable will take the form of an SQL database schema. The database
-    that it describes will be hosted on an AWS RDS instance. As this may not be
-    available at all times the feed will have the ability to deploy a local
-    database to read from for testing purposes.
+    This will consist of a Python module that will provide an interface to a
+    database holding test data. In a production environment this database would
+    be hosted on a saleable cloud system, such as AWS RDS. For this project
+    however, a local SQLite database will be used.
 
-    \subsubsection{The Scrapers}
+    \subsubsection{Test Data}
 
-    This part of the project consists of several independent scripts, each will
-    be tailored to a specific BBC data source. The specifics for language,
-    running and hosting will vary between the scripts. They will each come with
-    appropriate documentation.
+    This will take the form of a single file containing SQL data that can be
+    loaded by the catalogue to initialise its database with test data. The
+    contents of this data will be sourced from the BBC News website.
 
   \subsection{Out of Scope Issues}
 
   This project is primarily focused on the engineering challenges of developing
   this system, as such it will not be attempting to measure user experiences in
   any way. The project will also not be attempting to judge the performance of
-  the content selection algorithm that is used. These topics are highly
+  any content selection algorithms that are used. These topics are highly
   important to the problem space being explored, however they each could
   constitute a project in their own right and would spread the focus of this
   project too thin. These two issues would make for excellent follow up projects
@@ -263,32 +273,33 @@ and applied to a digital news consumption platform?
 
   \subsection{Motivation for the Project}
 
-  This last issue is the primary inspiration for this project. As part of the
-  BBC News Labs team I worked on the SlicerAV and Live Segment Notifications
-  (LSN) projects. SlicerAV takes broadcast news programmes and automatically
-  breaks them up into "slices" of short form media \citep{slicer}. Once this
-  project was functional the next question was how to deliver this content to
-  end users. For testing purposes we decided to tweet the slices as we felt that
-  they fit best on to a social media platform, and twitter worked best for our
-  use-case.
+  The BBC runs a news innovation team, called News Labs, which develops novel
+  technologies for news creation, consumption and delivery. Two of their recent
+  projects, which formed the inspiration for this project, are SlicerAV and Live
+  Segment Notifications (LSN) projects. SlicerAV takes broadcast TV and radio
+  news programmes and automatically breaks them up into 'slices' of short form
+  media \citep{slicer}. Once this project was functional the next question was
+  how to deliver this content to end users. For testing purposes they decided to
+  tweet the slices as it was identified that the content fit well on to a social
+  media platform, and twitter worked best for this use-case.
 
   The LSN project aimed to inspect news broadcasts just before they go live and
-  notify users about upcoming content that may be interesting to them
-  \citep{lsn}. This worked well, however we didn't have a good platform for
-  hosting this content internally. This raised to possibility of a feed that
-  would hold all the slices that a user had been notified about for them to
-  browse. We then took that idea and realised it might fit well if applied to a
-  news homepage, where sliced content could be surfaced alongside regular
-  articles and videos.
+  notify users about upcoming content, in the form of 'slices', that may be
+  interesting to them \citep{lsn}. This was successful, however it did not fit
+  well with the current BBC online news delivery systems. This raised the
+  possibility of a feed that would hold all the slices that a user had been
+  notified about for them to browse. This idea was considered and built upon,
+  eventually leading to the idea of a unified news homepage, where sliced
+  content could be surfaced alongside regular articles and videos.
 
-  News Labs is focused on innovating news production and consumption, as such
-  they have several projects that could benefit from a flexible user interface
-  to surface their content. One such project is Graphical Story Telling (GST)
-  which aims to take articles and turn them into a series of graphics with
-  overlaid text that can be swiped through \citep{gst}. This content is inspired
-  by social media and would fit perfectly into this project. This provided the
-  idea to make a flexible feed that can present a wide variety of content in one
-  place, with functionality for personalisation and testing.
+  News Labs is focused on innovating news creation, consumption and delivery, as
+  such they have several projects that could benefit from a flexible user
+  interface to surface their content. One such project is Graphical Story
+  Telling (GST) which aims to take articles and turn them into a series of
+  graphics with overlaid text that can be swiped through \citep{gst}. This
+  content is inspired by social media and would fit perfectly into this project.
+  This provided the idea to make a flexible feed that can present a wide variety
+  of content in one place, with functionality for personalisation and testing.
 
 \section{Literature Review}
 
@@ -374,11 +385,11 @@ and applied to a digital news consumption platform?
     likely to act when given fewer choices.
   \end{quote}
 
-  This is something to keep in mind when designing this system, we should aim to
-  not overload the user with too many options at once. Techniques such as
-  allowing users to save articles for later, return to their position in the
-  list and allowing them to filter content to different categories will help to
-  overcome this.
+  This is something to keep in mind when designing this system, the project
+  should aim to not overload the user with too many options at once. Techniques
+  such as allowing users to save articles for later, return to their position in
+  the list and allowing them to filter content to different categories will help
+  to overcome this.
 
   Another aspect to consider is the implementation, as mentioned by
   \cite{newtarget} infinite scrolling has the potential to reduce the
@@ -447,13 +458,15 @@ and applied to a digital news consumption platform?
   \subsection{Project Timeline}
 
   Time management for this project will be monitored through the use of a Gantt
-  chart (see fig. \ref{fig:gantt}). Contingency time has not yet been added to
-  the plan, this will be added after development has started when project pacing
-  can be measured. This chart will be updated as the project develops, however
-  more granular tasks will not be added. These will be tracked through the
-  Kanban board mentioned in the methodology.
+  chart (see fig. \ref{fig:gantt}). Contingency time takes the form of two week
+  long blocks where no development is planned. Depending on how the development
+  progresses this time will either be used for further research and writing, or
+  more development time. This chart will be updated as the project develops and
+  objectives are added or removed, however individual daily tasks will not be
+  added. These will be tracked through the Kanban board mentioned later in the
+  methodology.
 
-  \clearpage
+  \clearpage %To-Do: Re-do gantt chart
 
   \begin{sidewaysfigure}
     \includegraphics[width=\textheight]{../img/gantt.png}
@@ -465,15 +478,15 @@ and applied to a digital news consumption platform?
 
 \section{System Development}
 
-%To-Do: Write system development
-
   \subsection{Development Methodology}
 
   Throughout this project an iterative development style was used. This took the
   form of a 'design-implement-test' loop that was repeated for each step of the
-  project. This was used to provide compartmentalisation to the system; each
-  element performs a simple function that could be tested easily. When each of
-  these elements are connected they create a more complex system.
+  project. Tasks were taken from the Kanban board, implemented and tested before
+  moving on to the next task. This was used to provide compartmentalisation to
+  the system; each element performs a simple function that could be tested
+  easily. When each of these elements are connected they create a more complex
+  system.
 
   A good example of this is the API side of the catalogue module. This uses SQL
   commands to retrieve information from the database and convert this
@@ -513,7 +526,31 @@ and applied to a digital news consumption platform?
   HTML, CSS and JavaScript as this avoided having to learn new user interface
   frameworks.
 
-  %To-Do: Add development progress section
+  \subsection{Development Progress}
+
+  The first section that was implemented was the initial catalogue and API.
+  These needed to be developed concurrently as they are very tightly coupled. It
+  would also have been difficult to test the catalogue without the API present,
+  and vice versa. The structure for developing these elements was to select a
+  table from the database and implement it in catalogue with \textit{add} and
+  both singular and multi-item \textit{get} methods, these were accompanied by
+  matching API endpoints.
+
+  Once all of the tables were represented in this fashion, work was started on
+  the user interface. To develop this, static web pages were first written.
+  These had no connection to the data stored in the catalogue and were used to
+  develop the interface without worrying about the data interface working
+  correctly. Once a page was finalised the static elements were replaced by data
+  read from the catalogue. The use of Jinja as a template rendering engine made this step simple and greatly streamlined this area of development.
+
+  At this point a basic web interface had been developed and the next step was
+  to add functionality to the site. Each feature was roughly prioritised based
+  on time to implement and benefit to the system. Adding a functional log in
+  system was quite time consuming, however it was vital for other elements of
+  the system to function at all so this was given a high priority. As part of
+  this process several new methods needed to be written in order to support new
+  features. For example, it was required that users could be retrieved by name
+  rather than by ID for the log in system to function correctly.
 
   \subsection{Issues Faced}
 
@@ -586,7 +623,20 @@ and applied to a digital news consumption platform?
   database. Only one update method was required during the project, this was to
   allow users to change their topic preferences through the web user interface.
 
-  %To-Do: Talk about secrutiy
+  As it stands the project implements zero authentication or security to any of
+  the endpoints or database. Currently if the project was hosted online anyone
+  who knew the endpoints could inject data into the catalogue easily, and anyone
+  with access to the host machine could connect directly to the database to
+  manipulate the data. In a production environment these issues would need to be
+  addressed. The API would implement authentication where allowed applications
+  could receive a token that would allow them to access the API endpoints.
+  Additionally security certificates could be used to ensure that requests are
+  originating from valid systems. The database wold also have to be secured by
+  creating users with limited permissions and passwords, in addition to this the
+  host machine would need to be secure to ensure attackers cannot access the
+  system this way. These issues were not resolved in this project as it will
+  never be hosted or used in a production environment, however they would need
+  to be addressed if the project was developed any further.
 
   \subsection{Feed}
 
@@ -623,6 +673,14 @@ and applied to a digital news consumption platform?
   focused on a single page experience, rather than directing users to multiple
   pages which could lead to navigational issues.
 
+  The feed implements very basic authentication, however this is only based on
+  the user name and no password or other form of secret is used to secure these
+  accounts. In a production environment this would cause major issues, however
+  implementing these features would have added significant development time
+  without contributing to the user interface or other features of the project.
+  As this project is only a prototype and will not be deployed anywhere it was
+  decided that not implementing this was acceptable
+
   \subsection{Database}
 
   The database has been designed to show how the use of intelligently structured
@@ -655,7 +713,7 @@ and applied to a digital news consumption platform?
 
 %To-Do: Add system diagrams
 
-%To-Do: Write system overview
+%To-Do: Add UI screenshots
 
 \section{Informal Evaluation}
 
