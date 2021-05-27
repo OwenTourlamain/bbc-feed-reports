@@ -710,6 +710,49 @@ and applied to a digital news consumption platform?
   the rest of the system, this helps streamline development and track changes
   throughout the process.
 
+  \subsection{Changed and Removed Features}
+
+  Due to the time constraints on this project paired with its ambitious nature,
+  several features had to be simplified or cut entirely. Deciding which
+  features to remove or change required analysing each one and weighing the
+  benefit it would bring to the project, against the time and effort it would
+  take to implement. Some removed features required other simpler systems to be
+  built to replace them; the time and effort cost of these were considered
+  as well.
+
+  The largest of these cut features was the external data gathering programs.
+  These would have collected data from various BBC sources and fed this into the
+  catalogue. This feature would have highlighted the way this system allows for
+  disparate data from a variety of sources to tell a coherent story.
+  Implementing this would have taken a large proportion of the development time
+  available to the project as finding appropriate data sources would have
+  required contacting many different teams within the BBC in order to work out
+  how the data could be ingested. Coordination across an organisation as large
+  as the BBC typically spans weeks, if not months, which would not work within
+  the time frame of this project. Once these data sources were identified
+  bespoke software would need to be written for each one and hosting solutions
+  would need to be found to ensure that they could gather data effectively. This
+  feature was emulated by creating a set of test data that represents how the
+  system might appear if these data gatherers were operational. This emulation
+  is sufficient to prove the concept of the the system so making this
+  replacement was deemed beneficial to the project
+
+  One key aspect of social media is the ability to interact with content through
+  a feedback system such as using 'likes' or 'dislikes'. The initial conception
+  of this project included a similar system that users could use to indicate
+  content they were interested in or content that they did not want to see more
+  of. The feed would then have shown the user more or less of a specific topic
+  depending on their interests. One issue with this idea is it requires the
+  system to make choices on behalf of the user, how many times should a user
+  dislike a topic before it is removed from their feed? Developing a system that
+  can make these choices, and tuning it to give the desired outcome is a
+  significant task that would constitute a research project all of its own. As
+  such it was decided instead to simply let the user pick which topics they are
+  or are not interested in via their user profile. This method allows the rest
+  of the project to demonstrate how such a recommendation system would affect
+  the user interface without needing to dedicate the time to developing such a
+  system.
+
 %To-Do: Add system diagrams
 
 %To-Do: Add UI screenshots
@@ -717,6 +760,16 @@ and applied to a digital news consumption platform?
 \section{Informal Evaluation}
 
 %To-Do: Write informal evaluation - interview booked for 27/5
+
+% Negatives:
+%   Needs smoothing - get rid of topic selection
+%   Needs interaction - like/upvote
+%
+% Positives:
+%   Data interface is interesting
+%   UI is clean on well designed
+%   Data structures are very interesting
+%   Project is worth continuing
 
 \section{Discussion}
 
