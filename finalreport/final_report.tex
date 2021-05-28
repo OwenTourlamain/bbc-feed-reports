@@ -753,6 +753,8 @@ and applied to a digital news consumption platform?
   the user interface without needing to dedicate the time to developing such a
   system.
 
+  %To-Do: Lack of mobile interface
+
 %To-Do: Add system diagrams
 
 %To-Do: Add UI screenshots
@@ -770,6 +772,69 @@ and applied to a digital news consumption platform?
 %   UI is clean on well designed
 %   Data structures are very interesting
 %   Project is worth continuing
+
+  Once the system was completed it was necessary to evaluate it in order to
+  determine if the project was a success. A user study was considered, this would
+  have involved allowing users to consume news through both the new system and
+  existing news user interfaces and then collecting their feedback. This idea
+  was rejected because of the limited data set available, it would not be
+  possible for a user to consume news through the system in a realistic manner.
+  This approach would also only test the user interface and would not evaluate
+  the API aspect of the project.
+
+  Due to these two issues it was instead decided to use an informal evaluation.
+  A group of BBC News Labs developers, including the Head of Product, were
+  selected and given a ten minute demonstration of the project. This showcased
+  the user interface and API, while at the same time they were told about how
+  the data was structured behind the scenes. After this they were free to ask
+  questions about the project to ensure they understood the system as well as
+  possible. Once they were satisfied with this they were asked to give their
+  thoughts about the system, highlighting any positives or negatives that they
+  could see along with their general thoughts about the project.
+
+  The main negative they found was the user topic selection menu in the user
+  profile page. They felt that this interface was 'clunky' and that many users
+  would not be aware of it. Once they were told that this page replaced the user
+  feedback buttons ('like'/'dislike') they agreed that this would solve the
+  issues they had with the topic selection.
+
+  Another issue they found was the lack of any navigation elements when on the
+  login, register and profile pages. They felt that could leave users feeling
+  stranded. The browsers built in back button fulfils this role, however a home
+  button should have been added to these pages and this was an oversight when
+  developing the user interface.
+
+  All the developers agreed that the interface was well designed in general,
+  with clear synergy to existing BBC platforms which they said shows how this
+  project could be integrated into a wider system. The use of spot colours to
+  both draw the users focus and identify branding was highlighted as a good
+  design element. They liked the consistent use of negative space to break up
+  the pages and keep them readable whilst still conveying dense information.
+  They thought that the infinite scrolling idea was an interesting development
+  on the traditional news user interface and they thought that a full user study
+  in this field would be worthwhile.
+
+  The API was of specific interest to some of the developers. They felt that if
+  this project was polished and deployed then it would offer easy access to a
+  rich collection of structured data that could enable many other projects that
+  are currently not possible. They also liked the concept of many different
+  sources feeding into this single system, although they did highlight that
+  engineering a system to process this data at a large scale would be a
+  significant challenge.
+
+  The connected nature of the data excited some of the developers. They liked
+  the idea of a Python library that they could import into their own projects to
+  get easy access to this data without having to worry about making API calls
+  themselves. They mentioned that it would be good to port this library to other
+  languages that the BBC uses regularly such as NodeJS, Java and C++.
+
+  Overall the developers had a positive response to the project, and they said
+  that it is something News Labs would consider developing further in the
+  future. They mentioned that it would be challenging for their team to take on
+  however due to the need for long term maintenance which, as an innovation
+  focused team, they don't provide. If a suitable team was found that could take
+  on the task of deploying and maintaining this system however they believe it
+  would be worth investing development time into furthering this idea.
 
 \section{Discussion}
 
