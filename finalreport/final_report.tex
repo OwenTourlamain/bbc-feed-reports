@@ -590,13 +590,21 @@ and applied to a digital news consumption platform?
   swapped out very easily and would allow the use of saleable cloud-based
   databases such as AWS RDS.
 
-  The main functionality of the module is provided by \textit{catalogue.py}, in
-  this file is a single class that handles all the interaction with the SQL
-  database. When this class is initialised it attempts to access a database
-  file, creating it if the file doesn't exist. If the database is empty it
-  initialises it with a pre-written database schema and test data. This was done
-  to reduce the development time needed to maintain the database as it could be
-  quickly wiped and rebuilt with minimal effort.
+  The main functionality of the module is provided by \textit{catalogue.py}, as
+  shown in \ref{fig:catalogue}. In this file is a single class, called database,
+  that handles all the interaction with the SQL database. When this class is
+  initialised it attempts to access a database file, creating it if the file
+  doesn't exist. If the database is empty it initialises it with a pre-written
+  database schema and test data. This was done to reduce the development time
+  needed to maintain the database as it could be quickly wiped and rebuilt with
+  minimal effort.
+
+  \begin{figure}
+    \centering
+    \includegraphics[height=\textheight/3]{../img/catalogue.png}
+    \caption{Database Class}
+    \label{fig:catalogue}
+  \end{figure}
 
   All database tables have an \textit{add} method, as well as \textit{get}
   methods for both single items or all items in the table. In a full production
@@ -628,6 +636,23 @@ and applied to a digital news consumption platform?
   was added to improve efficiency when checking if a user exists in the
   database. Only one update method was required during the project, this was to
   allow users to change their topic preferences through the web user interface.
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{../img/datatypes.png}
+    \caption{Datatypes Classes}
+    \label{fig:datatypes}
+  \end{figure}
+
+  The second file in the module, \textit{datatypes.py} as seen in
+  \ref{fig:datatypes}, provides a collection of classes that represtend the
+  various datatypes stored in the database. This was created to allow the other
+  parts of the system to interact with the data in a Pythonic, object-oriented
+  way. By using this interface the other parts of the system don't need to worry
+  about the specifics of the database schema or engine. Each of the datatypes
+  inherits from a base class called \textit{GenericData}, this provides shared
+  methods which allow the datatypes to be compared and also serialised into a
+  JSON format for the REST API.
 
   As it stands the project implements zero authentication or security to any of
   the endpoints or database. Currently if the project was hosted online anyone
