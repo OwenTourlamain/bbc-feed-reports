@@ -186,18 +186,22 @@ and applied to a digital news consumption platform?
 
   The deliverables for this project will be two of the three components
   highlighted above, as well as all documentation required to understand,
-  maintain, deploy and use the system. The documentation will be provided as
-  readme files alongside documentation within the code base itself. The majority
-  code produced will be written in Python, with HTML, CSS and JavaScript used
-  for the web interface. Also included will be a set of test data that can be
-  used to demonstrate the system in a working state.
+  maintain, deploy and use the system. The documentation will be provided in a
+  plain text readme file formatted using markdown, this has been chosen because
+  the format works well with GitHub which will be used throughout the project.
+  This documentation will be supplemented with comments within the code base. The
+  majority code produced will be written in Python, with HTML, CSS and
+  JavaScript used for the web interface. Also included will be a set of test
+  data that can be used to demonstrate the system in a working state.
 
     \subsubsection{The Feed}
 
-    This deliverable will be a Python Flask application that can either be run
+    This deliverable will use Python's Flask module, a light-weight web
+    application framework that has been chosen due to its simplicity and lack of
+    overhead. The python application created will be able to either be run
     locally or deployed to a web server. It will have accompanying scripts that
-    install any prerequisites for running the application. This deliverable
-    will depend on having a valid catalogue to read from.
+    install any prerequisites for running the application. This deliverable will
+    depend on having a valid catalogue to read from.
 
     \subsubsection{The Catalogue}
 
@@ -540,7 +544,8 @@ and applied to a digital news consumption platform?
   These had no connection to the data stored in the catalogue and were used to
   develop the interface without worrying about the data interface working
   correctly. Once a page was finalised the static elements were replaced by data
-  read from the catalogue. The use of Jinja as a template rendering engine made this step simple and greatly streamlined this area of development.
+  read from the catalogue. The use of Jinja as a template rendering engine made
+  this step simple and greatly streamlined this area of development.
 
   At this point a basic web interface had been developed and the next step was
   to add functionality to the site. Each feature was roughly prioritised based
@@ -572,7 +577,7 @@ and applied to a digital news consumption platform?
 
   The final system consists of two main components that provide the
   functionality and user interface of the system respectively which are detailed
-  bellow. In addition to these components there is a database schema and
+  below. In addition to these components there is a database schema and
   prototype data set which have been produced.
 
   \subsection{Catalogue}
@@ -760,18 +765,6 @@ and applied to a digital news consumption platform?
 %To-Do: Add UI screenshots
 
 \section{Informal Evaluation}
-
-%To-Do: Write informal evaluation - interview booked for 27/5
-
-% Negatives:
-%   Needs smoothing - get rid of topic selection
-%   Needs interaction - like/upvote
-%
-% Positives:
-%   Data interface is interesting
-%   UI is clean on well designed
-%   Data structures are very interesting
-%   Project is worth continuing
 
   Once the system was completed it was necessary to evaluate it in order to
   determine if the project was a success. A user study was considered, this would
