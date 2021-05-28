@@ -10,6 +10,10 @@
 \usepackage[figuresleft]{rotating}
 \usepackage{url}
 \usepackage[final]{pdfpages}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{mwe}
+\usepackage{subfig}
 
 \def\UrlBreaks{\do\/\do-}
 \usepackage
@@ -591,7 +595,7 @@ and applied to a digital news consumption platform?
   databases such as AWS RDS.
 
   The main functionality of the module is provided by \textit{catalogue.py}, as
-  shown in \ref{fig:catalogue}. In this file is a single class, called database,
+  shown in fig. \ref{fig:catalogue}. In this file is a single class, called database,
   that handles all the interaction with the SQL database. When this class is
   initialised it attempts to access a database file, creating it if the file
   doesn't exist. If the database is empty it initialises it with a pre-written
@@ -644,7 +648,7 @@ and applied to a digital news consumption platform?
     \label{fig:datatypes}
   \end{figure}
 
-  The second file in the module, \textit{datatypes.py} as seen in
+  The second file in the module, \textit{datatypes.py} as seen in fig.
   \ref{fig:datatypes}, provides a collection of classes that represent the
   various datatypes stored in the database. This was created to allow the other
   parts of the system to interact with the data in a Pythonic, object-oriented
@@ -741,7 +745,7 @@ and applied to a digital news consumption platform?
   that can easily be queried to extract the followed topics for a given user.
 
   To make the database easier to maintain the schema has been defined in a
-  separate file that can be loaded on start up, this schema can be seen in
+  separate file that can be loaded on start up, this schema can be seen in fig.
   \ref{fig:schema}. This allows the structure of the database to be changed with
   minimal effort, and even swapped out for a completely different one if
   desired. In a similar manner the test data is stored in plain text as a
@@ -802,7 +806,136 @@ and applied to a digital news consumption platform?
   template to be rendered depending on various factors, such as if the user is
   accessing the site through a mobile device.
 
-%To-Do: Add UI screenshots
+  \subsection{User Interface}
+
+    \subsubsection{Home Page}
+
+    \begin{figure}
+
+      \begin{minipage}{.5\linewidth}
+        \centering
+        \subfloat[Default view]{\label{fig:home1}\includegraphics[width=.95\linewidth]{../img/sc-home.png}}
+      \end{minipage}%
+      \begin{minipage}{.5\linewidth}
+        \centering
+        \subfloat[Signed in]{\label{fig:home2}\includegraphics[width=.95\linewidth]{../img/sc-home-logged-in.png}}
+      \end{minipage}\par\medskip
+
+      \begin{minipage}{.5\linewidth}
+        \centering
+        \subfloat[Single Topic]{\label{fig:home3}\includegraphics[width=.95\linewidth]{../img/sc-topic.png}}
+      \end{minipage}%
+      \begin{minipage}{.5\linewidth}
+        \centering
+        \subfloat[Single Story]{\label{fig:home4}\includegraphics[width=.95\linewidth]{../img/sc-story.png}}
+      \end{minipage}
+      \centering
+      \subfloat[Expanded post]{\label{fig:home5}\includegraphics[width=.475\linewidth]{../img/sc-post.png}}
+
+      \caption{The home page}
+      \label{fig:home}
+    \end{figure}
+
+    The home page is split into three main sections: the header and footer, the
+    navigation panel on the left and the feed content on the right. The header
+    and footer were provided by BBC News Labs and have been used to show that
+    this is a prototype application and not an actual BBC product. In a
+    production version of this interface the footer would be removed entirely
+    and the header would be replaced with a standard BBC header that would
+    contain links to other BBC services.
+
+    The navigation panel is designed to allow easy navigation to any of the
+    topics a user might be interested in. It has two states: signed in and
+    signed out. In the signed out state it shows a few buttons that link to
+    popular topics, in the real system these would be decided using viewing
+    trends but for this project they are pre-set. In the signed in state this
+    area contains a list of buttons that link to the topics that the user has
+    selected in their profile. In either state the buttons are themed according
+    to the brand of their topic by using the brand colour as a background when
+    the user hovers over them. Due to the various brand colours being used the
+    text had to be inverted sometimes to ensure a high contrast for readability
+    reasons.
+
+    The feed content contains the list of current posts the user is consuming.
+    This list is presented on a dark background in order to draw the users
+    attention to the content and to provide separation between each post. At the
+    top there is a heading that changes depending on the content being
+    displayed. If the user is viewing a topic or story then the title of this is
+    shown here, otherwise it defaults to displaying 'My Feed'. There is a
+    refresh button alongside this heading however this is non functional in this
+    project as new posts cannot be added to the system dynamically.
+
+    Each post in the feed is also split into three sections: the post image,
+    post summary and the post body. The body is hidden by default and requires
+    the user click on 'Continue reading' in order to show it, this can be seen
+    in fig. \ref{fig:home5}. The body of the post itself is deliberately left
+    undefined as different types of post will want to use this area in unique
+    ways. In the example data a few paragraphs and headings are used to show how
+    a standard news article might appear. After this there is a button that
+    allows the user to view more posts in the same story as the current post.
+    This uses the brand of the post as a highlight colour as the user hovers
+    over it to show that it is interactable.
+
+    The post image uses an image that is relevant to the post as a background
+    element, with the headline and brand logo drawn on top of the image. This
+    use of branding on top of the image helps to tie the post to the brand and
+    make each brand stand out from the others. This is the boldest use of the
+    brand colours in the user interface and brings a lot of colour and interest
+    to the otherwise very monotone interface.
+
+    The post summary contains metadata about the post such as the date it was
+    created, a brief summary of the content, and its associated tags (if any).
+    This is followed by a 'Continue reading' button that darkens its background
+    when hovered to show interactivity. This is different from the other
+    buttons that use a bright colour when hovered, this was done to show that
+    this button won't take the user to a new page, instead it will change the
+    current page in some way. The posts tags are coloured according to their
+    respective brands. The sizing of the borders and negative space in these
+    elements was taken from the BBC News web site to ensure that this interface
+    would look correct as part of the BBC product range.
+
+    \subsection{Login, Register and Profile Pages}
+
+    \begin{figure}
+      \begin{minipage}{.5\linewidth}
+        \centering
+        \subfloat[Log in]{\label{fig:up3}\includegraphics[width=.95\linewidth]{../img/sc-log-in.png}}
+      \end{minipage}%
+      \begin{minipage}{.5\linewidth}
+        \centering
+        \subfloat[Register]{\label{fig:up4}\includegraphics[width=.95\linewidth]{../img/sc-register.png}}
+      \end{minipage}
+      \centering
+      \subfloat[Profile]{\label{fig:up5}\includegraphics[width=.475\linewidth]{../img/sc-profile.png}}
+
+      \caption{The user session pages}
+      \label{fig:userpages}
+    \end{figure}
+
+    These three pages share a lot of stylistic elements between them. This was
+    done to visually separate the content consumption pages from the user
+    management pages. As these pages don't showcase any BBC content they
+    couldn't use brand colours to highlight interface elements. Instead a bright
+    blue was used, this was chosen from the official BBC colour palette, but it
+    is not used for any BBC brands, allowing these elements to stand out from
+    the rest of the interface.
+
+    The use of an image in the background matches other BBC products that also
+    employ this technique. This provides some interest to pages that would
+    otherwise feel very utilitarian. The background was chosen to be dark to
+    allow the user interface elements on top of it to stand out, this draws the
+    users focus to the parts of the page they need to interact with. The
+    specific image was chosen as it evokes a sense of being behind the scenes,
+    this allows the user to feel like nothing is being hidden from them.
+    Similar techniques are being used across the BBC to show audiences the
+    sides of broadcasting that are normally hidden away.
+
+    The profile page was not worked on extensively as in a production system
+    this would be replaced with the BBC's centralised user sign in system. The
+    blue colours have been used here to highlight interactable elements, but
+    this page shows that this can be overbearing if used too heavily. An
+    improvement to this page would be to make the buttons grey-scale and only
+    show the blue colour when the user hovered over the elements.
 
 \section{Informal Evaluation}
 
