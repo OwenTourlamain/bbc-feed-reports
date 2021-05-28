@@ -714,6 +714,13 @@ and applied to a digital news consumption platform?
 
   \subsection{Database}
 
+  \begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{../img/dbschema.png}
+    \caption{Datatypes Schema}
+    \label{fig:schema}
+  \end{figure}
+
   The database has been designed to show how the use of intelligently structured
   data can effect the delivery of online news. The core data structure in the
   system is the relation between \textit{posts}, \textit{stories} and
@@ -733,14 +740,14 @@ and applied to a digital news consumption platform?
   extra table was created that holds pairs of \textit{(user\_id, topic\_id)}
   that can easily be queried to extract the followed topics for a given user.
 
-  To make the database easier to maintain, the schema has been defined in a
-  separate file that can be loaded on start up. This allows the structure of the
-  database to be changed with minimal effort, and even swapped out for a
-  completely different one if desired. In a similar manner the test data is
-  stored in plain text as a sequence of SQL \textit{INSERT} commands, Keeping
-  these two files in plain text allows them to be version controlled along with
-  the rest of the system, this helps streamline development and track changes
-  throughout the process.
+  To make the database easier to maintain the schema has been defined in a
+  separate file that can be loaded on start up, this schema can be seen in
+  \ref{fig:schema}. This allows the structure of the database to be changed with
+  minimal effort, and even swapped out for a completely different one if
+  desired. In a similar manner the test data is stored in plain text as a
+  sequence of SQL \textit{INSERT} commands, Keeping these two files in plain
+  text allows them to be version controlled along with the rest of the system,
+  this helps streamline development and track changes throughout the process.
 
   \subsection{Changed and Removed Features}
 
@@ -786,8 +793,6 @@ and applied to a digital news consumption platform?
   system.
 
   %To-Do: Lack of mobile interface
-
-%To-Do: Add system diagrams
 
 %To-Do: Add UI screenshots
 
