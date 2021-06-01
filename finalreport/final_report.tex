@@ -222,7 +222,7 @@ and applied to a digital news consumption platform?
 
     This will consist of a Python module that will provide an interface to a
     database holding test data. In a production environment this database would
-    be hosted on a saleable cloud system, such as AWS RDS. For this project
+    be hosted on a scalable cloud system, such as AWS RDS. For this project
     however, a local SQLite database will be used.
 
     \subsubsection{Test Data}
@@ -417,7 +417,7 @@ and applied to a digital news consumption platform?
   of content will have to be loaded, small delays between system components will
   quickly add up resulting in a poor user experience. To combat this each
   element of the system will need to be tested thoroughly and UI tasks such as
-  rendering should be separated from other logic through threading.
+  rendering should be separated from other logic.
 
   \subsection{Social Media Design for Increasing User Engagement}
 
@@ -557,7 +557,7 @@ and applied to a digital news consumption platform?
   Once all of the tables were represented in this fashion, work was started on
   the user interface. To develop this, static web pages were first written.
   These had no connection to the data stored in the catalogue and were used to
-  develop the interface without worrying about the data interface working
+  develop the user interface without worrying about the data interface working
   correctly. Once a page was finalised the static elements were replaced by data
   read from the catalogue. The use of Jinja as a template rendering engine made
   this step simple and greatly streamlined this area of development.
@@ -600,8 +600,15 @@ and applied to a digital news consumption platform?
   The catalogue portion of the system has been built as an independent Python
   module, the aim of this was to encourage de-coupling the data model
   implementation from the rest of the system. This allows the data source to be
-  swapped out very easily and would allow the use of saleable cloud-based
+  swapped out very easily and would allow the use of scalable cloud-based
   databases such as AWS RDS.
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[height=\textheight/3]{../img/catalogue.png}
+    \caption{Database Class}
+    \label{fig:catalogue}
+  \end{figure}
 
   The main functionality of the module is provided by \textit{catalogue.py}, as
   shown in fig. \ref{fig:catalogue}. In this file is a single class, called database,
@@ -611,13 +618,6 @@ and applied to a digital news consumption platform?
   database schema and test data. This was done to reduce the development time
   needed to maintain the database as it could be quickly wiped and rebuilt with
   minimal effort.
-
-  \begin{figure}
-    \centering
-    \includegraphics[height=\textheight/3]{../img/catalogue.png}
-    \caption{Database Class}
-    \label{fig:catalogue}
-  \end{figure}
 
   All database tables have an \textit{add} method, as well as \textit{get}
   methods for both single items or all items in the table. In a full production
@@ -650,7 +650,7 @@ and applied to a digital news consumption platform?
   database. Only one update method was required during the project, this was to
   allow users to change their topic preferences through the web user interface.
 
-  \begin{figure}
+  \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{../img/datatypes.png}
     \caption{Datatypes Classes}
@@ -727,10 +727,10 @@ and applied to a digital news consumption platform?
 
   \subsection{Database}
 
-  \begin{figure}
+  \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{../img/dbschema.png}
-    \caption{Datatypes Schema}
+    \caption{Database Schema}
     \label{fig:schema}
   \end{figure}
 
@@ -819,7 +819,7 @@ and applied to a digital news consumption platform?
 
     \subsubsection{Home Page}
 
-    \begin{figure}
+    \begin{figure}[ht]
 
       \begin{minipage}{.5\linewidth}
         \centering
@@ -905,7 +905,7 @@ and applied to a digital news consumption platform?
 
     \subsubsection{Login, Register and Profile Pages}
 
-    \begin{figure}
+    \begin{figure}[ht]
       \begin{minipage}{.5\linewidth}
         \centering
         \subfloat[Log in]{\label{fig:up3}\includegraphics[width=.95\linewidth]{../img/sc-log-in.png}}
@@ -954,8 +954,6 @@ and applied to a digital news consumption platform?
   existing news user interfaces and then collecting their feedback. This idea
   was rejected because of the limited data set available, it would not be
   possible for a user to consume news through the system in a realistic manner.
-  This approach would also only test the user interface and would not evaluate
-  the API aspect of the project.
 
   Due to these two issues it was instead decided to use an informal evaluation.
   A group of BBC News Labs developers, including the Head of Product, were
@@ -987,7 +985,7 @@ and applied to a digital news consumption platform?
   the pages and keep them readable whilst still conveying dense information.
   They thought that the infinite scrolling idea was an interesting development
   on the traditional news user interface and they thought that a full user study
-  in this field would be worthwhile.
+  in this field would be worthwhile for future research.
 
   The API was of specific interest to some of the developers. They felt that if
   this project was polished and deployed then it would offer easy access to a
@@ -1015,8 +1013,8 @@ and applied to a digital news consumption platform?
 
   \subsection{Discussion}
 
-  This project has highlighted the impact that changing a user interface can
-  have on a news consumption platform. By focusing the user interface and data
+  This project has shown how a data-driven approach can be used to create a
+  novel interface for news consumption. By focusing the user interface and data
   structure around the ways in which the content is interconnected, a functional
   and eye catching user interface has been built. The full impact of such an
   interface will need to be studied further in order to evaluate the effect this
@@ -1082,7 +1080,7 @@ and applied to a digital news consumption platform?
   implement it at scale.
 
   If this model is implemented at scale it would be necessary to re-design it so
-  that it is capable of handling large volumes of data quickly and reliably. TO
+  that it is capable of handling large volumes of data quickly and reliably. To
   achieve this it might be useful to look into other data systems such as graph
   based databases that might allow for easier data traversal.
 
